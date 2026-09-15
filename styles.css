@@ -106,9 +106,11 @@ h2 { font-size: clamp(2.8rem, 4.8vw, 4.7rem); }
 .steps p { margin: 0; color: var(--ink-soft); font-size: .88rem; }
 .local-cta { display: flex; align-items: end; justify-content: space-between; gap: 40px; margin-top: 30px; padding: 58px 62px; background: var(--teal); color: white; }
 .local-cta h2 { font-size: clamp(2.4rem, 4vw, 4rem); }
+.cta-notes { display: grid; gap: 14px; }
 .cta-note { display: flex; align-items: center; gap: 14px; padding: 16px 20px; border: 1px solid rgba(255,255,255,.22); color: rgba(255,255,255,.68); font-size: .82rem; line-height: 1.45; white-space: nowrap; }
-.cta-note svg { width: 26px; height: 26px; color: var(--copper-light); }
+.cta-note svg { flex-shrink: 0; width: 26px; height: 26px; color: var(--copper-light); }
 .cta-note strong { color: white; }
+.cta-address { color: var(--copper-light); text-decoration: underline; }
 
 .site-footer { background: #0e1512; color: white; }
 .footer-inner { min-height: 120px; display: flex; align-items: center; justify-content: space-between; gap: 30px; }
