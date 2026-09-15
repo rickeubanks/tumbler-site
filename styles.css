@@ -101,8 +101,7 @@ h2 { font-size: clamp(2.8rem, 4.8vw, 4.7rem); }
 .carousel-track::-webkit-scrollbar { display: none; }
 .carousel-slide { flex: 0 0 clamp(220px, 26%, 280px); scroll-snap-align: start; }
 .carousel-slide figure { margin: 0; }
-.carousel-slide img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 6px; border: 1px solid var(--line); background: var(--cream); }
-.carousel-slide figcaption { margin-top: 12px; color: var(--ink-soft); font-size: .85rem; font-weight: 600; }
+.carousel-slide img { width: 100%; aspect-ratio: 1 / 1; object-fit: contain; border-radius: 6px; border: 1px solid var(--line); background: var(--cream); }
 .carousel-arrow { display: grid; place-items: center; flex-shrink: 0; width: 48px; height: 48px; border: 1px solid var(--line); border-radius: 50%; background: white; color: var(--ink); cursor: pointer; transition: background .2s, transform .2s; }
 .carousel-arrow:hover { background: var(--cream); transform: translateY(-2px); }
 .carousel-arrow svg { width: 20px; height: 20px; }
