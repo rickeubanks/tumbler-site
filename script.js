@@ -103,7 +103,6 @@ designForm?.addEventListener('submit', async (event) => {
   try {
     const response = await fetch(designForm.action, {
       method: 'POST',
-      headers: { Accept: 'application/json' },
       body: new FormData(designForm),
     });
 
