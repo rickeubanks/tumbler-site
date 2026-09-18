@@ -38,8 +38,7 @@ if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-mot
   revealItems.forEach((item) => item.classList.add('visible'));
 }
 
-document.querySelectorAll('[data-carousel]').forEach((carousel) => {
-  const track = carousel.querySelector('[data-carousel-track]');
+document.querySelectorAll('[data-carousel]').forEach((carousel) => {  const track = carousel.querySelector('[data-carousel-track]');
   const prevButton = carousel.querySelector('[data-carousel-prev]');
   const nextButton = carousel.querySelector('[data-carousel-next]');
   const dotsContainer = carousel.parentElement.querySelector('[data-carousel-dots]');
@@ -84,5 +83,38 @@ document.querySelectorAll('[data-carousel]').forEach((carousel) => {
     slides.forEach((slide) => dotObserver.observe(slide));
   } else {
     dots[0]?.classList.add('active');
+  }
+});
+
+const designForm = document.querySelector('[data-design-form]');
+const designFormSuccess = document.querySelector('[data-design-form-success]');
+const designFormStatus = designForm?.querySelector('[data-form-status]');
+
+designForm?.addEventListener('submit', async (event) => {
+  event.preventDefault();
+
+  const submitButton = designForm.querySelector('button[type="submit"]');
+  submitButton.disabled = true;
+  if (designFormStatus) {
+    designFormStatus.hidden = false;
+    designFormStatus.textContent = 'Sending your design…';
+  }
+
+  try {
+    const response = await fetch(designForm.action, {
+      method: 'POST',
+      headers: { Accept: 'application/json' },
+      body: new FormData(designForm),
+    });
+
+    if (!response.ok) throw new Error('Submission failed');
+
+    designForm.hidden = true;
+    if (designFormSuccess) designFormSuccess.hidden = false;
+  } catch (error) {
+    submitButton.disabled = false;
+    if (designFormStatus) {
+      designFormStatus.textContent = 'Something went wrong sending your design. Please try again.';
+    }
   }
 });

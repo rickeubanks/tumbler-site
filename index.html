@@ -281,7 +281,7 @@
             </p>
           </div>
 
-          <form class="design-form" data-reveal action="https://formsubmit.co/rick.eubanks@gmail.com" method="POST" enctype="multipart/form-data">
+          <form class="design-form" data-reveal data-design-form action="https://formsubmit.co/ajax/rick.eubanks@gmail.com" method="POST">
             <input type="hidden" name="_subject" value="New custom tumbler design submission" />
             <input type="hidden" name="_captcha" value="false" />
             <input type="hidden" name="_template" value="table" />
@@ -312,7 +312,13 @@
 
             <button class="button button-primary" type="submit">Send my design</button>
             <p class="form-note">We’ll reach out by email or phone to confirm your order and pricing.</p>
+            <p class="form-status" data-form-status role="status" aria-live="polite" hidden></p>
           </form>
+
+          <div class="design-form-success" data-design-form-success hidden>
+            <h3>Thanks for sending your design!</h3>
+            <p>We’ve received your idea and will reach out by email or phone to confirm the details and pricing.</p>
+          </div>
         </div>
       </section>
 

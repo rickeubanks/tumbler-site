@@ -120,7 +120,12 @@ h2 { font-size: clamp(2.8rem, 4.8vw, 4.7rem); }
 .form-field input:focus, .form-field textarea:focus { outline: 2px solid var(--copper); outline-offset: 1px; }
 .form-field textarea { resize: vertical; }
 .design-form .button { align-self: start; border: 0; cursor: pointer; }
+.design-form .button:disabled { opacity: .6; cursor: not-allowed; transform: none; }
 .form-note { margin: -12px 0 0; color: var(--ink-soft); font-size: .82rem; }
+.form-status { margin: -12px 0 0; font-size: .85rem; font-weight: 600; color: var(--teal); }
+.design-form-success { max-width: 760px; padding: 40px; background: white; border: 1px solid var(--line); }
+.design-form-success h3 { margin: 0 0 10px; font: 600 1.6rem var(--serif); }
+.design-form-success p { margin: 0; color: var(--ink-soft); }
 
 .process { background: var(--cream); }
 .steps { display: grid; grid-template-columns: repeat(3, 1fr); margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
