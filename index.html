@@ -23,6 +23,9 @@
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <link rel="stylesheet" href="styles.css" />
     <script src="script.js" defer></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YBK7Y8F5D9"></script>
+    <script src="ga.js"></script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -78,6 +81,7 @@
           <a href="#included">What’s included</a>
           <a href="#designs">Designs</a>
           <a href="#how-it-works">How it works</a>
+          <a href="#submit-design">Submit a design</a>
           <a class="nav-cta" href="#how-it-works">Ask at the drive-thru</a>
         </nav>
       </div>
@@ -261,6 +265,54 @@
           </div>
 
           <div class="carousel-dots" data-carousel-dots></div>
+        </div>
+      </section>
+
+      <section class="submit section" id="submit-design">
+        <div class="shell">
+          <div class="section-heading" data-reveal>
+            <div>
+              <p class="eyebrow dark"><span></span> Have something in mind?</p>
+              <h2>Send us your<br />custom design.</h2>
+            </div>
+            <p>
+              Upload a photo, logo, or written idea and we’ll follow up to confirm details and
+              pricing before we start engraving.
+            </p>
+          </div>
+
+          <form class="design-form" data-reveal action="https://formsubmit.co/rick.eubanks@gmail.com" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="_subject" value="New custom tumbler design submission" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+
+            <div class="form-grid">
+              <label class="form-field">
+                <span>Name</span>
+                <input type="text" name="Name" required autocomplete="name" />
+              </label>
+              <label class="form-field">
+                <span>Email</span>
+                <input type="email" name="Email" required autocomplete="email" />
+              </label>
+              <label class="form-field">
+                <span>Phone (optional)</span>
+                <input type="tel" name="Phone" autocomplete="tel" />
+              </label>
+              <label class="form-field">
+                <span>Upload an image (optional)</span>
+                <input type="file" name="Attachment" accept="image/*,.pdf" />
+              </label>
+              <label class="form-field full">
+                <span>Describe your idea</span>
+                <textarea name="Design details" rows="5" required placeholder="Tell us about the design, text, colors, or inspiration you have in mind."></textarea>
+              </label>
+            </div>
+
+            <button class="button button-primary" type="submit">Send my design</button>
+            <p class="form-note">We’ll reach out by email or phone to confirm your order and pricing.</p>
+          </form>
         </div>
       </section>
 
