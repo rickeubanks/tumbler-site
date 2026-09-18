@@ -23,6 +23,20 @@ document.querySelectorAll('[data-year]').forEach((node) => {
   node.textContent = new Date().getFullYear();
 });
 
+const trackEvent = (name, params = {}) => {
+  if (typeof window.gtag === 'function') window.gtag('event', name, params);
+};
+
+document.querySelectorAll('[data-cta]').forEach((el) => {
+  el.addEventListener('click', () => trackEvent('cta_click', { cta_id: el.dataset.cta }));
+});
+
+document.querySelectorAll('[data-tier]').forEach((card) => {
+  card.addEventListener('click', () => {
+    trackEvent('select_content', { content_type: 'pricing_tier', item_id: card.dataset.tier });
+  });
+});
+
 const revealItems = document.querySelectorAll('[data-reveal]');
 if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
   const observer = new IntersectionObserver((entries) => {
@@ -38,7 +52,8 @@ if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-mot
   revealItems.forEach((item) => item.classList.add('visible'));
 }
 
-document.querySelectorAll('[data-carousel]').forEach((carousel) => {  const track = carousel.querySelector('[data-carousel-track]');
+document.querySelectorAll('[data-carousel]').forEach((carousel) => {
+  const track = carousel.querySelector('[data-carousel-track]');
   const prevButton = carousel.querySelector('[data-carousel-prev]');
   const nextButton = carousel.querySelector('[data-carousel-next]');
   const dotsContainer = carousel.parentElement.querySelector('[data-carousel-dots]');
@@ -64,9 +79,11 @@ document.querySelectorAll('[data-carousel]').forEach((carousel) => {  const trac
 
   prevButton?.addEventListener('click', () => {
     track.scrollBy({ left: -scrollByAmount(), behavior: 'smooth' });
+    trackEvent('design_carousel_navigate', { direction: 'prev' });
   });
   nextButton?.addEventListener('click', () => {
     track.scrollBy({ left: scrollByAmount(), behavior: 'smooth' });
+    trackEvent('design_carousel_navigate', { direction: 'next' });
   });
 
   if ('IntersectionObserver' in window && dots.length > 0) {
@@ -110,10 +127,12 @@ designForm?.addEventListener('submit', async (event) => {
 
     designForm.hidden = true;
     if (designFormSuccess) designFormSuccess.hidden = false;
+    trackEvent('generate_lead', { method: 'custom_design_form' });
   } catch (error) {
     submitButton.disabled = false;
     if (designFormStatus) {
       designFormStatus.textContent = 'Something went wrong sending your design. Please try again.';
     }
+    trackEvent('design_form_error', { method: 'custom_design_form' });
   }
 });
